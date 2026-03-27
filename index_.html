@@ -1,0 +1,672 @@
+<!doctype html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Moh Nur Huda | Portfolio</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style_.css" />
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+    
+    <!-- Tailwind Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#4F46E5",
+                        charcoal: "#1f2937",
+                        accent: "#F8FAFC",
+                        surface: "#FFFFFF",
+                        "accent-blue": "#E0E7FF",
+                        "accent-purple": "#F5F3FF",
+                        "accent-emerald": "#ECFDF5",
+                        "accent-rose": "#FFF1F2",
+                        "background-light": "#FFFFFF",
+                        "card-bg": "#FFFFFF",
+                        "accent-teal": "#14b8a6",
+                        "accent-pink": "#ec4899",
+                    },
+                    fontFamily: { display: ["Inter", "sans-serif"] },
+                    borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+                    boxShadow: {
+                        "soft-card": "0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 10px -2px rgba(0, 0, 0, 0.03)",
+                        "hover-card": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                        soft: "0 10px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.04)",
+                        "soft-hover": "0 20px 40px -12px rgba(0, 0, 0, 0.08)",
+                    },
+                    animation: {
+                        float: "float 6s ease-in-out infinite",
+                        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+                        "slide-up": "slide-up 0.5s ease-out",
+                        "fade-in": "fade-in 0.7s ease-out",
+                        "slide-down": "slide-down 0.3s ease-out",
+                    },
+                    keyframes: {
+                        float: { "0%, 100%": { transform: "translateY(0)" }, "50%": { transform: "translateY(-20px)" } },
+                        "pulse-glow": { "0%, 100%": { opacity: 1 }, "50%": { opacity: 0.7 } },
+                        "slide-up": { "0%": { transform: "translateY(20px)", opacity: 0 }, "100%": { transform: "translateY(0)", opacity: 1 } },
+                        "slide-down": { "0%": { transform: "translateY(-20px)", opacity: 0 }, "100%": { transform: "translateY(0)", opacity: 1 } },
+                        "fade-in": { "0%": { opacity: 0 }, "100%": { opacity: 1 } },
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="bg-surface font-display text-slate-900 selection:bg-primary/20">
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav h-20 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+            <div class="flex items-center gap-2 group cursor-pointer">
+                <div class="size-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20 hover:scale-105 transition-transform duration-300">
+                    <span class="material-symbols-outlined text-2xl">code_blocks</span>
+                </div>
+                <span class="text-xl font-black tracking-tight text-slate-900 group-hover:text-primary transition-colors">HUDA.DEV</span>
+            </div>
+            <div class="hidden md:flex items-center gap-10">
+                <a class="nav-link text-sm font-semibold text-slate-500 hover:text-primary transition-colors" href="#home" data-scroll-to>Home</a>
+                <a class="nav-link text-sm font-semibold text-slate-500 hover:text-primary transition-colors" href="#about" data-scroll-to>About</a>
+                <a class="nav-link text-sm font-semibold text-slate-500 hover:text-primary transition-colors" href="#projects" data-scroll-to>Projects</a>
+                <a class="nav-link text-sm font-semibold text-slate-500 hover:text-primary transition-colors" href="#skills" data-scroll-to>Skills</a>
+                <a class="nav-link text-sm font-semibold text-slate-500 hover:text-primary transition-colors" href="#experience" data-scroll-to>Experience</a>
+                <a class="nav-link text-sm font-semibold text-slate-500 hover:text-primary transition-colors" href="#contact" data-scroll-to>Contact</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="hidden lg:block bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-xl font-bold text-sm transition-all active:scale-95 shadow-sm hover:shadow-lg hover:scale-105" id="contact-btn">Let's Talk</button>
+                <button class="md:hidden p-2 text-slate-600 hover:text-primary transition-colors" id="mobile-menu-btn">
+                    <span class="material-symbols-outlined text-2xl">menu</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden fixed inset-0 z-40 hidden" id="mobile-menu">
+        <div class="absolute inset-0 bg-black/50" id="mobile-menu-overlay"></div>
+        <div class="absolute top-0 left-0 right-0 glass-menu animate-slide-down">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <div class="flex items-center gap-2">
+                        <div class="size-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
+                            <span class="material-symbols-outlined text-2xl">code_blocks</span>
+                        </div>
+                        <span class="text-xl font-black tracking-tight text-slate-900">HUDA.DEV</span>
+                    </div>
+                    <button class="p-2 text-slate-600 hover:text-primary transition-colors" id="close-menu">
+                        <span class="material-symbols-outlined text-2xl">close</span>
+                    </button>
+                </div>
+                <div class="flex flex-col gap-6">
+                    <a class="nav-link text-lg font-semibold text-slate-700 hover:text-primary py-3 px-4 rounded-xl hover:bg-primary/5 transition-all" href="#home" data-scroll-to>
+                        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">home</span><span>Home</span></div>
+                    </a>
+                    <a class="nav-link text-lg font-semibold text-slate-700 hover:text-primary py-3 px-4 rounded-xl hover:bg-primary/5 transition-all" href="#about" data-scroll-to>
+                        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">person</span><span>About</span></div>
+                    </a>
+                    <a class="nav-link text-lg font-semibold text-slate-700 hover:text-primary py-3 px-4 rounded-xl hover:bg-primary/5 transition-all" href="#projects" data-scroll-to>
+                        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">work</span><span>Projects</span></div>
+                    </a>
+                    <a class="nav-link text-lg font-semibold text-slate-700 hover:text-primary py-3 px-4 rounded-xl hover:bg-primary/5 transition-all" href="#skills" data-scroll-to>
+                        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">code</span><span>Skills</span></div>
+                    </a>
+                    <a class="nav-link text-lg font-semibold text-slate-700 hover:text-primary py-3 px-4 rounded-xl hover:bg-primary/5 transition-all" href="#experience" data-scroll-to>
+                        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">school</span><span>Experience</span></div>
+                    </a>
+                    <a class="nav-link text-lg font-semibold text-slate-700 hover:text-primary py-3 px-4 rounded-xl hover:bg-primary/5 transition-all" href="#contact" data-scroll-to>
+                        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-xl">mail</span><span>Contact</span></div>
+                    </a>
+                    <button class="mt-6 bg-slate-900 hover:bg-slate-800 text-white py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2" id="mobile-contact-btn">
+                        <span class="material-symbols-outlined">chat</span> Let's Talk
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT - dengan data-scroll-container untuk Locomotive Scroll -->
+    <main data-scroll-container>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center pt-20 hero-pattern overflow-hidden" id="home" data-scroll-section>
+            <div class="absolute top-40 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-20 right-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" style="animation-delay: 2s"></div>
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                <div class="space-y-8 animate-fade-in">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/10 text-primary text-xs font-bold uppercase tracking-wider hover-lift">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        </span>
+                        Let's build something great
+                    </div>
+                    <div class="space-y-4">
+                        <h1 class="text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight text-slate-900">
+                            Hi, I'm <span class="text-primary typing-cursor" id="typing-text">Moh Nur Huda</span>
+                        </h1>
+                        <p class="text-xl lg:text-2xl text-slate-500 font-medium max-w-lg leading-relaxed">
+                            Software Engineer &amp; <span class="text-slate-900 underline decoration-primary/30 decoration-4 underline-offset-4">Full Stack Developer</span>
+                            Building scalable web applications from frontend to backend.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <button class="bg-primary hover:bg-[#4338CA] text-white px-8 py-4 rounded-2xl font-bold text-lg flex items-center gap-2 transition-all hover:translate-y-[-2px] shadow-xl shadow-primary/20 hover:shadow-2xl hover:scale-105 view-work-btn">
+                            View My Work <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                        <button class="bg-white border border-slate-200 hover:bg-slate-50 text-slate-900 px-8 py-4 rounded-2xl font-bold text-lg flex items-center gap-2 transition-all hover:translate-y-[-2px] shadow-sm hover:shadow-lg hover:scale-105" id="download-cv">
+                            Download CV <span class="material-symbols-outlined">visibility</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative hidden lg:block animate-slide-up" style="animation-delay: 0.3s">
+                    <div class="absolute -top-10 -left-10 w-24 h-24 border-t-4 border-l-4 border-primary/10 rounded-tl-3xl"></div>
+                    <div class="absolute -bottom-10 -right-10 w-24 h-24 border-b-4 border-r-4 border-primary/10 rounded-br-3xl"></div>
+                    <div class="relative z-10 w-full aspect-square rounded-[2.5rem] overflow-hidden shadow-2xl shadow-slate-200 border border-slate-100 group hover-lift">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="assets/fotoporto2.jpeg" alt="3D tech illustration" />
+                        <!-- <div class="absolute bottom-6 right-6 left-6 p-6 glass-nav rounded-2xl border border-white/40 shadow-xl">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-xs font-bold text-primary uppercase">I am a</p>
+                                    <p class="text-lg font-black text-slate-900">Software Developer</p>
+                                </div>
+                                <div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary hover:scale-110 transition-transform">
+                                    <span class="material-symbols-outlined">rocket_launch</span>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <div class="py-12 border-y border-slate-100 bg-white" data-scroll-section>
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-wrap justify-center md:justify-between items-center gap-8 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                    <div class="flex items-center gap-2 hover:scale-110 transition-transform"><span class="material-symbols-outlined text-primary">terminal</span><span class="font-bold text-slate-900">React Js</span></div>
+                    <div class="flex items-center gap-2 hover:scale-110 transition-transform"><span class="material-symbols-outlined text-primary">design_services</span><span class="font-bold text-slate-900">Figma</span></div>
+                    <div class="flex items-center gap-2 hover:scale-110 transition-transform"><span class="material-symbols-outlined text-primary">data_object</span><span class="font-bold text-slate-900">TypeScript</span></div>
+                    <div class="flex items-center gap-2 hover:scale-110 transition-transform"><span class="material-symbols-outlined text-primary">token</span><span class="font-bold text-slate-900">Tailwind CSS</span></div>
+                    <div class="flex items-center gap-2 hover:scale-110 transition-transform"><span class="material-symbols-outlined text-primary">neurology</span><span class="font-bold text-slate-900">Laravel</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section class="bg-background-light py-20" id="about" data-scroll-section>
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-16 animate-slide-up">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-widest">
+                            <span class="w-8 h-[2px] bg-primary"></span>Introduction
+                        </div>
+                        <h1 class="text-charcoal text-5xl md:text-6xl font-black leading-tight tracking-[-0.033em]">
+                            About Me &amp; <span class="text-primary">Technical Skills</span></h1>
+                        <p class="text-gray-500 text-xl max-w-2xl font-normal leading-relaxed">Software Engineer & Full Stack Developer who bridges the gap between frontend finesse and backend robustness.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
+                    <div class="lg:col-span-7 flex flex-col gap-6 animate-fade-in">
+                        <h2 class="text-charcoal text-3xl font-bold">Who Am I</h2>
+                        <div class="space-y-4 text-gray-600 text-lg leading-relaxed">
+                            <p>I'm a <span class="text-primary font-semibold">Full-Stack Developer</span> with proven experience in web and mobile application development using JavaScript, React, Next.js, Vue.js, TypeScript, PHP (Laravel), and Java. I specialize in building end-to-end applications from requirements analysis through to deployment.</p>
+                            <p>My expertise includes developing e-commerce platforms, digital library systems, IoT monitoring solutions, and database-driven applications. I've successfully delivered projects for government institutions like the <span class="text-primary font-semibold">Nganjuk Regency Archives and Library Department</span> and <span class="text-primary font-semibold">Perhutani Forest Management Unit</span>.</p>
+                            <p>I'm accustomed to working in collaborative team environments and am committed to writing scalable, testable code that meets deadlines. Currently seeking opportunities to contribute to high-quality application development, particularly in remote working environments.</p>
+                        </div>
+                        <div class="mt-4 p-6 rounded-xl bg-primary/5 border border-primary/10 flex items-center gap-4 hover-lift">
+                            <span class="material-symbols-outlined text-primary scale-125">emoji_events</span>
+                            <p class="text-sm font-medium text-primary">🏆 3rd Place Winner at EPIM JTI (Information Technology Students' Scientific Week Expo)</p>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 flex flex-col gap-4 animate-slide-up" style="animation-delay: 0.2s">
+                        <h2 class="text-charcoal text-xl font-bold mb-2">Quick Facts</h2>
+                        <div class="quick-fact-card p-6 rounded-xl flex flex-col gap-2 hover-lift">
+                            <div class="flex items-center gap-3"><span class="material-symbols-outlined text-purple-500">school</span>
+                                <p class="text-gray-400 text-xs uppercase font-bold tracking-widest">Education</p>
+                            </div>
+                            <p class="text-charcoal font-medium text-lg">D4 Computer Science - Jember State Polytechnic</p>
+                        </div>
+                        <div class="quick-fact-card p-6 rounded-xl flex flex-col gap-2 hover-lift">
+                            <div class="flex items-center gap-3"><span class="material-symbols-outlined text-orange-500">rocket_launch</span>
+                                <p class="text-gray-400 text-xs uppercase font-bold tracking-widest">Achievement</p>
+                            </div>
+                            <p class="text-charcoal font-medium text-lg">3rd Place - EPIM JTI 2025</p>
+                        </div>
+                        <div class="quick-fact-card p-6 rounded-xl flex flex-col gap-2 hover-lift">
+                            <div class="flex items-center gap-3"><span class="material-symbols-outlined text-green-500">psychology</span>
+                                <p class="text-gray-400 text-xs uppercase font-bold tracking-widest">Core Strengths</p>
+                            </div>
+                            <p class="text-charcoal font-medium text-lg">Teamwork · Critical Thinking · Problem Solving</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="bg-[#FAFAFB] py-20" id="projects" data-scroll-section>
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-14 text-center md:text-left animate-fade-in">
+                    <span class="inline-block px-3 py-1 bg-accent-blue text-primary text-xs font-bold uppercase tracking-widest rounded-full mb-4">Engineering Showcase</span>
+                    <h1 class="text-4xl md:text-5xl font-black tracking-tight text-slate-900 mb-6">Featured Engineering Works</h1>
+                    <p class="text-slate-500 text-lg md:text-xl max-w-2xl leading-relaxed">A selection of high-performance web applications and UI/UX systems focusing on performance, accessibility, and modern aesthetics.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- GreenTrack -->
+                    <div class="card-3d-container horizon-gradient animate-slide-up group">
+                        <div class="card-3d shadow-soft hover:shadow-soft-hover transition-all duration-500">
+                            <div class="card-3d-shadow"></div>
+                            <div class="card-3d-layer"></div>
+                            <div class="card-3d-layer"></div>
+                            <div class="card-3d-content p-8 flex flex-col h-full">
+                                <div class="project-image-3d aspect-[16/10] w-full mb-6">
+                                    <div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-110" style="background-image: url('assets/Dashboard.png')"></div>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <h3 class="text-2xl font-bold text-slate-900">GreenTrack</h3>
+                                        <div class="flex gap-2">
+                                            <div class="tag-pill bg-red-100 text-red-700">Laravel</div>
+                                            <div class="tag-pill bg-emerald-100 text-emerald-700">Tailwind</div>
+                                        </div>
+                                    </div>
+                                    <p class="text-slate-500 text-sm mb-6 leading-relaxed">The 'GreenTrack' website, an application for tracking seedling and timber data under the auspices of KPH Perhutani Nganjuk.</p>
+                                </div>
+                                <div class="flex gap-4 mt-auto pt-4 z-10 relative"><a href="https://greentrack.pbltifnganjuk.com/" target="_blank" class="flex-[2] flex items-center justify-center gap-2 bg-primary text-white py-3 px-4 rounded-xl text-sm font-bold transition-all duration-300 hover:bg-primary/80 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-1 demo-button"><span class="material-symbols-outlined !text-[18px]">open_in_new</span><span>Live Demo</span></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Perpusdig -->
+                    <div class="card-3d-container etherflow-gradient animate-slide-up group" style="animation-delay: 0.1s">
+                        <div class="card-3d shadow-soft hover:shadow-soft-hover transition-all duration-500">
+                            <div class="card-3d-shadow"></div>
+                            <div class="card-3d-layer"></div>
+                            <div class="card-3d-layer"></div>
+                            <div class="card-3d-content p-8 flex flex-col h-full">
+                                <div class="project-image-3d aspect-[16/10] w-full mb-6">
+                                    <div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-110" style="background-image: url('assets/perpusdig.png')"></div>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <h3 class="text-2xl font-bold text-slate-900">Perpusdig</h3>
+                                        <div class="flex gap-2">
+                                            <div class="tag-pill bg-purple-100 text-purple-700">Html/CSS</div>
+                                            <div class="tag-pill bg-blue-100 text-blue-700">PHP</div>
+                                        </div>
+                                    </div>
+                                    <p class="text-slate-500 text-sm mb-6 leading-relaxed">Analysed the requirements of the Nganjuk Regency Archives and Library Department to
+facilitate the public in improving literacy in Nganjuk Regency.</p>
+                                </div>
+                                <div class="flex gap-4 mt-auto pt-4 z-10 relative"><a href="https://perpusdig.pbltifnganjuk.com/index.php" target="_blank" class="flex-[2] flex items-center justify-center gap-2 bg-primary text-white py-3 px-4 rounded-xl text-sm font-bold transition-all duration-300 hover:bg-primary/80 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-1 demo-button"><span class="material-symbols-outlined !text-[18px]">open_in_new</span><span>Live Demo</span></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TaskSync -->
+                    <div class="card-3d-container luxecart-gradient animate-slide-up group" style="animation-delay: 0.2s">
+                        <div class="card-3d shadow-soft hover:shadow-soft-hover transition-all duration-500">
+                            <div class="card-3d-shadow"></div>
+                            <div class="card-3d-layer"></div>
+                            <div class="card-3d-layer"></div>
+                            <div class="card-3d-content p-8 flex flex-col h-full">
+                                <div class="project-image-3d aspect-[16/10] w-full mb-6">
+                                    <div class="w-full h-full bg-center bg-cover transition-transform duration-700 group-hover:scale-110" style="background-image: url('assets/task_sync.png')"></div>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <h3 class="text-2xl font-bold text-slate-900">TaskSync-Landing Page</h3>
+                                        <div class="flex gap-2">
+                                            <div class="tag-pill bg-rose-100 text-rose-700">React Js</div>
+                                            <div class="tag-pill bg-blue-100 text-blue-700">Tailwind</div>
+                                        </div>
+                                    </div>
+                                    <p class="text-slate-500 text-sm mb-6 leading-relaxed">A website landing page is similar to Trello, which is used to create to-do lists for tasks and daily activities.</p>
+                                </div>
+                                <div class="flex gap-4 mt-auto pt-4 z-10 relative"><a href="https://mhnurr.github.io/landing-page_TaskSync/" target="_blank" class="flex-[2] flex items-center justify-center gap-2 bg-primary text-white py-3 px-4 rounded-xl text-sm font-bold transition-all duration-300 hover:bg-primary/80 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-1 demo-button"><span class="material-symbols-outlined !text-[18px]">open_in_new</span><span>Live Demo</span></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="bg-background-light py-20" id="skills" data-scroll-section>
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="space-y-12">
+                    <div class="text-center md:text-left animate-fade-in">
+                        <h2 class="text-charcoal text-4xl font-bold section-title">Technical Stack</h2>
+                        <div class="h-1.5 w-16 bg-primary rounded-full mt-4 mb-6"></div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="space-y-6 animate-slide-up">
+                            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">terminal</span>
+                                <h3 class="text-xl font-bold text-charcoal">Frontend</h3>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="skill-card p-5 rounded-xl flex flex-col items-center justify-center gap-3 text-center group hover-lift">
+                                    <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                                        <span class="material-symbols-outlined">data_object</span>
+                                    </div><span class="text-sm font-bold text-charcoal">React.js</span>
+                                </div>
+                                <div class="skill-card p-5 rounded-xl flex flex-col items-center justify-center gap-3 text-center group hover-lift">
+                                    <div class="w-12 h-12 rounded-xl bg-sky-50 flex items-center justify-center text-sky-600 group-hover:bg-sky-600 group-hover:text-white transition-all">
+                                        <span class="material-symbols-outlined">description</span>
+                                    </div><span class="text-sm font-bold text-charcoal">TypeScript</span>
+                                </div>
+                                <div class="skill-card p-5 rounded-xl flex flex-col items-center justify-center gap-3 text-center group hover-lift">
+                                    <div class="w-12 h-12 rounded-xl bg-cyan-50 flex items-center justify-center text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white transition-all">
+                                        <span class="material-symbols-outlined">format_paint</span>
+                                    </div><span class="text-sm font-bold text-charcoal">Tailwind</span>
+                                </div>
+                                <div class="skill-card p-5 rounded-xl flex flex-col items-center justify-center gap-3 text-center group hover-lift">
+                                    <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-red-600 group-hover:bg-red-600 group-hover:text-white transition-all">
+                                        <span class="material-symbols-outlined">neurology</span>
+                                    </div><span class="text-sm font-bold text-charcoal">Laravel</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-6 animate-slide-up" style="animation-delay: 0.1s">
+                            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">database</span>
+                                <h3 class="text-xl font-bold text-charcoal">Backend &amp; Data</h3>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="skill-card p-5 rounded-xl flex flex-col items-center justify-center gap-3 text-center group hover-lift">
+                                    <div class="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center text-green-600 group-hover:bg-green-600 group-hover:text-white transition-all">
+                                        <span class="material-symbols-outlined">developer_board</span>
+                                    </div><span class="text-sm font-bold text-charcoal">Node.js</span>
+                                </div>
+                                <div class="skill-card p-5 rounded-xl flex flex-col items-center justify-center gap-3 text-center group hover-lift">
+                                    <div class="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-all">
+                                        <span class="material-symbols-outlined">storage</span>
+                                    </div><span class="text-sm font-bold text-charcoal">SQL</span>
+                                </div>
+                                <div class="skill-card p-5 rounded-xl flex flex-col items-center justify-center gap-3 text-center group hover-lift">
+                                    <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-red-600 group-hover:bg-red-600 group-hover:text-white transition-all">
+                                        <span class="material-symbols-outlined">dns</span>
+                                    </div><span class="text-sm font-bold text-charcoal">Laragon</span>
+                                </div>
+                                <div class="skill-card p-5 rounded-xl flex flex-col items-center justify-center gap-3 text-center group hover-lift">
+                                    <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-all">
+                                        <span class="material-symbols-outlined">api</span>
+                                    </div><span class="text-sm font-bold text-charcoal">REST API</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-6 animate-slide-up" style="animation-delay: 0.2s">
+                            <div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">handyman</span>
+                                <h3 class="text-xl font-bold text-charcoal">Tools &amp; Design</h3>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="skill-card p-5 rounded-xl flex flex-col items-center justify-center gap-3 text-center group hover-lift">
+                                    <div class="w-12 h-12 rounded-xl bg-pink-50 flex items-center justify-center text-pink-600 group-hover:bg-pink-600 group-hover:text-white transition-all">
+                                        <span class="material-symbols-outlined">draw</span>
+                                    </div><span class="text-sm font-bold text-charcoal">Figma</span>
+                                </div>
+                                <div class="skill-card p-5 rounded-xl flex flex-col items-center justify-center gap-3 text-center group hover-lift">
+                                    <div class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-700 group-hover:bg-slate-700 group-hover:text-white transition-all">
+                                        <span class="material-symbols-outlined">commit</span>
+                                    </div><span class="text-sm font-bold text-charcoal">Git</span>
+                                </div>
+                                <div class="skill-card p-5 rounded-xl flex flex-col items-center justify-center gap-3 text-center group hover-lift">
+                                    <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-red-600 group-hover:bg-red-600 group-hover:text-white transition-all">
+                                        <span class="material-symbols-outlined">palette</span>
+                                    </div><span class="text-sm font-bold text-charcoal">Canva</span>
+                                </div>
+                                <div class="skill-card p-5 rounded-xl flex flex-col items-center justify-center gap-3 text-center group hover-lift">
+                                    <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-400 group-hover:bg-blue-400 group-hover:text-white transition-all">
+                                        <span class="material-symbols-outlined">cloud</span>
+                                    </div><span class="text-sm font-bold text-charcoal">Vercel</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="bg-background-light py-20" id="experience" data-scroll-section>
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-16 animate-slide-up">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-widest">
+                            <span class="w-8 h-[2px] bg-primary"></span>Professional Journey
+                        </div>
+                        <h1 class="text-charcoal text-5xl md:text-6xl font-black leading-tight tracking-[-0.033em]">
+                            Experience &amp; <span class="text-primary">Education</span></h1>
+                        <p class="text-gray-500 text-xl max-w-2xl font-normal leading-relaxed">A timeline of my professional growth and academic background in the field of technology and design.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-[48px_1fr] gap-x-6 px-4">
+                    <div class="flex flex-col items-center">
+                        <div class="size-11 rounded-full bg-primary/10 backdrop-blur-sm flex items-center justify-center text-primary border-4 border-white shadow-sm z-10">
+                            <span class="material-symbols-outlined text-xl">point_of_sale</span>
+                        </div>
+                        <div class="w-[2px] timeline-line h-full grow"></div>
+                    </div>
+                    <div class="flex flex-1 flex-col pb-12">
+                        <div class="light-card p-7 rounded-2xl hover:border-primary transition-all duration-300 group hover-lift">
+                            <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
+                                <h3 class="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">
+                                    Project Manager & Full Stack Developer</h3><span class="px-4 py-1.5 rounded-full bg-primary/5 text-primary text-[11px] font-bold uppercase tracking-wider border border-primary/10">2024</span>
+                            </div>
+                            <p class="text-slate-500 text-base font-semibold mb-3">CashierEase Desktop Application</p>
+                            <ul class="space-y-3 text-slate-600 text-[15px] leading-relaxed">
+                                <li class="flex gap-3"><span class="text-primary mt-1.5 block size-1.5 rounded-full bg-primary shrink-0"></span>Developed integrated desktop app with barcode scanner & receipt printer for SMEs in Nganjuk</li>
+                                <li class="flex gap-3"><span class="text-primary mt-1.5 block size-1.5 rounded-full bg-primary shrink-0"></span>Improved operational efficiency by up to 40% using Java and MySQL</li>
+                                <li class="flex gap-3"><span class="text-primary mt-1.5 block size-1.5 rounded-full bg-primary shrink-0"></span>Tech: Java, MySQL, XAMPP</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="size-11 rounded-full bg-accent-purple/10 backdrop-blur-sm flex items-center justify-center text-accent-purple border-4 border-white shadow-sm z-10">
+                            <span class="material-symbols-outlined text-xl">menu_book</span>
+                        </div>
+                        <div class="w-[2px] timeline-line h-full grow"></div>
+                    </div>
+                    <div class="flex flex-1 flex-col pb-12">
+                        <div class="light-card p-7 rounded-2xl hover:border-accent-purple transition-all duration-300 group hover-lift">
+                            <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
+                                <h3 class="text-xl font-bold text-slate-900 group-hover:text-accent-purple transition-colors">
+                                    Full Stack Web Developer</h3><span class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-500 text-[11px] font-bold uppercase tracking-wider border border-slate-200">2024</span>
+                            </div>
+                            <p class="text-slate-500 text-base font-semibold mb-3">PerpusDig Application</p>
+                            <p class="text-slate-600 text-[15px] leading-relaxed">Analyzed requirements for Nganjuk Regency Archives and Library Department to facilitate public literacy improvement through digital library platform.</p>
+                            <div class="mt-3 flex gap-2"><span class="tag-pill text-purple-700 text-xs">PHP</span><span class="tag-pill text-blue-700 text-xs">Laravel</span></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="size-11 rounded-full bg-accent-teal/10 backdrop-blur-sm flex items-center justify-center text-accent-teal border-4 border-white shadow-sm z-10">
+                            <span class="material-symbols-outlined text-xl">forest</span>
+                        </div>
+                        <div class="w-[2px] timeline-line h-full grow"></div>
+                    </div>
+                    <div class="flex flex-1 flex-col pb-12">
+                        <div class="light-card p-7 rounded-2xl hover:border-accent-teal transition-all duration-300 group hover-lift">
+                            <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
+                                <h3 class="text-xl font-bold text-slate-900 group-hover:text-accent-teal transition-colors">
+                                    Full Stack Web Developer</h3><span class="px-4 py-1.5 rounded-full bg-accent-teal/5 text-accent-teal text-[11px] font-bold uppercase tracking-wider border border-accent-teal/10">2025</span>
+                            </div>
+                            <p class="text-slate-500 text-base font-semibold mb-3">GreenTrack - Perhutani Nganjuk</p>
+                            <p class="text-slate-600 text-[15px] leading-relaxed">Managed and monitored seedling and timber data for Perhutani Forest Management Unit. <span class="text-primary font-semibold">🏆 Won 3rd place at EPIM JTI 2025</span></p>
+                            <div class="mt-3 flex gap-2"><span class="tag-pill text-red-700 text-xs">Laravel</span><span class="tag-pill text-emerald-700 text-xs">Tailwind</span></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="size-11 rounded-full bg-accent-pink/10 backdrop-blur-sm flex items-center justify-center text-accent-pink border-4 border-white shadow-sm z-10">
+                            <span class="material-symbols-outlined text-xl">science</span>
+                        </div>
+                        <div class="w-[2px] timeline-line h-full grow"></div>
+                    </div>
+                    <div class="flex flex-1 flex-col pb-12">
+                        <div class="light-card p-7 rounded-2xl hover:border-accent-pink transition-all duration-300 group hover-lift">
+                            <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
+                                <h3 class="text-xl font-bold text-slate-900 group-hover:text-accent-pink transition-colors">
+                                    Full Stack Developer</h3><span class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-500 text-[11px] font-bold uppercase tracking-wider border border-slate-200">2025</span>
+                            </div>
+                            <p class="text-slate-500 text-base font-semibold mb-3">StarFlow IoT Monitoring</p>
+                            <p class="text-slate-600 text-[15px] leading-relaxed">Built web-based monitoring application and IoT-based star fruit sorting tool based on ripeness levels for orchard partners.</p>
+                            <div class="mt-3 flex gap-2"><span class="tag-pill text-teal-700 text-xs">IoT</span><span class="tag-pill text-blue-700 text-xs">HTML/CSS</span></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="size-11 rounded-full bg-primary/10 backdrop-blur-sm flex items-center justify-center text-primary border-4 border-white shadow-sm z-10">
+                            <span class="material-symbols-outlined text-xl">school</span>
+                        </div>
+                        <div class="w-[2px] timeline-line h-full grow"></div>
+                    </div>
+                    <div class="flex flex-1 flex-col pb-12">
+                        <div class="light-card p-7 rounded-2xl hover:border-primary transition-all duration-300 group hover-lift">
+                            <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
+                                <h3 class="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">
+                                    D4 Computer Science</h3><span class="px-4 py-1.5 rounded-full bg-primary/5 text-primary text-[11px] font-bold uppercase tracking-wider border border-primary/10">2023 - Present</span>
+                            </div>
+                            <p class="text-slate-500 text-base font-semibold mb-3">Jember State Polytechnic</p>
+                            <p class="text-slate-600 text-[15px] leading-relaxed">Relevant coursework: Web & Mobile Development, Object-Oriented Programming, Software Project Planning, IoT Systems, AI & Intelligent Systems.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="size-11 rounded-full bg-accent-teal/10 backdrop-blur-sm flex items-center justify-center text-accent-teal border-4 border-white shadow-sm z-10">
+                            <span class="material-symbols-outlined text-xl">menu_book</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-1 flex-col">
+                        <div class="light-card p-7 rounded-2xl hover:border-accent-teal transition-all duration-300 group hover-lift">
+                            <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
+                                <h3 class="text-xl font-bold text-slate-900 group-hover:text-accent-teal transition-colors">
+                                    Social Sciences</h3><span class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-500 text-[11px] font-bold uppercase tracking-wider border border-slate-200">2020 - 2023</span>
+                            </div>
+                            <p class="text-slate-500 text-base font-semibold mb-3">Rejoso State Senior High School 1</p>
+                            <p class="text-slate-600 text-[15px] leading-relaxed">Major focus: Geography, Sociology, Economics, and Indonesian History.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="bg-white py-20" id="contact" data-scroll-section>
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-16 animate-slide-up">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-widest">
+                            <span class="w-8 h-[2px] bg-primary"></span>Get in Touch
+                        </div>
+                        <h1 class="text-charcoal text-5xl md:text-6xl font-black leading-tight tracking-[-0.033em]">
+                            Let's build <span class="text-primary">something together</span></h1>
+                        <p class="text-gray-500 text-xl max-w-2xl font-normal leading-relaxed">Have a project in mind or just want to chat about tech? Feel free to reach out. I'm always open to new opportunities.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <!-- Form Section dengan FormSubmit -->
+                    <div class="animate-fade-in">
+                        <form class="flex flex-col gap-6" id="contact-form">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="flex flex-col">
+                                    <label class="text-sm font-bold text-slate-700 pb-2 px-1">Full Name</label>
+                                    <input id="name" name="name" class="w-full rounded-xl border border-slate-200 bg-slate-50/50 focus:ring-4 focus:ring-primary/10 focus:border-primary h-14 px-5 text-slate-800 transition-all placeholder:text-slate-400 hover:border-primary/50" placeholder="John Doe" type="text" required />
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="text-sm font-bold text-slate-700 pb-2 px-1">Email Address</label>
+                                    <input id="email" name="email" class="w-full rounded-xl border border-slate-200 bg-slate-50/50 focus:ring-4 focus:ring-primary/10 focus:border-primary h-14 px-5 text-slate-800 transition-all placeholder:text-slate-400 hover:border-primary/50" placeholder="hello@example.com" type="email" required />
+                                </div>
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="text-sm font-bold text-slate-700 pb-2 px-1">Message</label>
+                                <textarea id="message" name="message" class="w-full rounded-xl border border-slate-200 bg-slate-50/50 focus:ring-4 focus:ring-primary/10 focus:border-primary p-5 text-slate-800 transition-all resize-none placeholder:text-slate-400 hover:border-primary/50 min-h-[180px]" placeholder="Tell me about your project or just say hi..." required></textarea>
+                            </div>
+                            <button type="submit" id="send-btn" class="bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 px-10 rounded-xl transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-3 w-full group mt-4 hover:scale-[1.02]">
+                                Send Message
+                                <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">send</span>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="flex flex-col gap-10 animate-slide-up" style="animation-delay: 0.2s">
+                        <div class="flex flex-col gap-6">
+                            <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2"><span class="material-symbols-outlined text-primary">contacts</span>Connect with me</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <a class="flex items-center gap-4 p-4 light-card rounded-xl hover:border-[#0A66C2] transition-all group hover-lift" href="https://www.linkedin.com/in/moh-nur-huda-a98286362/" target="_blank">
+                                    <div class="size-12 rounded-xl bg-[#0A66C2]/10 flex items-center justify-center text-[#0A66C2] group-hover:bg-[#0A66C2] group-hover:text-white transition-all">
+                                        <span class="material-symbols-outlined">share</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm text-slate-900">LinkedIn</p>
+                                        <p class="text-xs text-slate-500 font-medium">Professional profile</p>
+                                    </div>
+                                </a>
+                                <a class="flex items-center gap-4 p-4 light-card rounded-xl hover:border-[#181717] transition-all group hover-lift" href="https://github.com/mhnurr" target="_blank">
+                                    <div class="size-12 rounded-xl bg-slate-100 flex items-center justify-center text-slate-900 group-hover:bg-[#181717] group-hover:text-white transition-all">
+                                        <span class="material-symbols-outlined">terminal</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm text-slate-900">GitHub</p>
+                                        <p class="text-xs text-slate-500 font-medium">View my code</p>
+                                    </div>
+                                </a>
+                                <a class="flex items-center gap-4 p-4 light-card rounded-xl hover:border-[#E4405F] transition-all group hover-lift" href="https://www.instagram.com/mh_uurrr/" target="_blank">
+                                    <div class="size-12 rounded-xl bg-[#E4405F]/10 flex items-center justify-center text-[#E4405F] group-hover:bg-[#E4405F] group-hover:text-white transition-all">
+                                        <span class="material-symbols-outlined">photo_camera</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm text-slate-900">Instagram</p>
+                                        <p class="text-xs text-slate-500 font-medium">Follow me</p>
+                                    </div>
+                                </a>
+                                <a class="flex items-center gap-4 p-4 light-card rounded-xl hover:border-[#25D366] transition-all group hover-lift" href="https://wa.me/62881036512164?text=Hi%20Moh%20Nur%20Huda,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!" target="_blank">
+                                    <div class="size-12 rounded-xl bg-[#25D366]/10 flex items-center justify-center text-[#25D366] group-hover:bg-[#25D366] group-hover:text-white transition-all">
+                                        <span class="material-symbols-outlined">chat</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm text-slate-900">WhatsApp</p>
+                                        <p class="text-xs text-slate-500 font-medium">Direct chat</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-8 rounded-2xl bg-primary/5 border border-primary/10 relative overflow-hidden group hover-lift">
+                            <div class="absolute -right-4 -bottom-4 size-24 bg-primary/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+                            <h4 class="font-bold text-slate-900 mb-3 flex items-center gap-2"><span class="material-symbols-outlined text-primary">auto_awesome</span>Available for Hire</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed font-medium">Open to freelance contracts and full-time frontend and full stack developer roler. Let's discuss how we can work together!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-white py-12 px-6 border-t border-slate-100" data-scroll-section>
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-2">
+                    <div class="size-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary"><span class="material-symbols-outlined text-lg">code</span></div><span class="font-bold text-slate-900 tracking-tight">HUDA.DEV</span>
+                </div>
+                <div class="flex gap-8 text-sm font-medium text-slate-500"><a class="hover:text-primary transition-colors hover:scale-105" href="#">Privacy Policy</a><a class="hover:text-primary transition-colors hover:scale-105" href="#">Terms of Service</a><a class="hover:text-primary transition-colors hover:scale-105" href="#">Cookies</a></div>
+                <p class="text-sm text-slate-400">© 2023 Moh Nur Huda. Built with precision.</p>
+            </div>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <button id="back-to-top" class="fixed bottom-8 right-8 p-3 bg-primary text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all opacity-0 translate-y-10 z-50" style="transition: all 0.3s ease">
+            <span class="material-symbols-outlined">arrow_upward</span>
+        </button>
+    </main>
+
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="script_.js"></script>
+</body>
+
+</html>
